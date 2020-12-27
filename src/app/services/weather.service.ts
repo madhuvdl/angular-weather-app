@@ -1,7 +1,7 @@
 import { ICityWeather } from './../models/IWeatherData.interface';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { IWeatherRawData } from '../models/IWeatherRawData.interface';
@@ -25,6 +25,9 @@ export class WeatherService {
        - get list of cities based on the searched string
        sample url: baseUrl/api/location/search/?query=paris
     */
+   if (!term.trim()) {
+    return of(null);
+   }
    return this.http.get<ISearchResult[]>(this.baseUrl + '/api/location/search/?query=' + term);
 
   }
@@ -46,7 +49,7 @@ export class WeatherService {
   }
 
     transfromDate(date) {
-        console.log('Dat');
+        console.log('Dat', date);
         const dateInput = date.split('-');
         const event = new Date(Date.UTC(dateInput[0], dateInput[1], dateInput[2]));
         const options = { year: 'numeric', month: 'short', day: 'numeric' };
@@ -62,13 +65,14 @@ export class WeatherService {
 
     rawData.consolidated_weather.splice(0, 4).forEach(function(obj) {
 
+      console.log('obj.applicable_date ', obj.applicable_date);
       const dateInput = obj.applicable_date.split('-');
       const year = Number(dateInput[0]);
       const month = Number(dateInput[1]) - 1;
       const day = Number(dateInput[2]);
       const event = new Date(Date.UTC(year, month, day));
-      const date = event.toLocaleDateString(undefined, options);
-      // const date = obj.applicable_date;
+      // const date = event.toLocaleDateString(undefined, options);
+      const date = obj.applicable_date;
       const temperature = obj.the_temp;
       const weather_name = obj.weather_state_name.trim();
       const image_path = weather_name.toLowerCase().split(' ').length > 1;

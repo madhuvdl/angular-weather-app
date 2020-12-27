@@ -1,5 +1,12 @@
 import { WeatherService } from './../../services/weather.service';
 import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+
+import { Observable, Subject } from 'rxjs';
+
+import {
+   debounceTime, distinctUntilChanged, switchMap
+ } from 'rxjs/operators';
+
 import { ISearchResult } from '../../models/IWeatherData.interface';
 
 @Component({
@@ -19,7 +26,7 @@ export class SearchComponent implements OnInit {
     ngOnInit() {
     }
 
-    search(term) {
+    search(term: string): void {
         /*
             CHALLENGE
                 - if user has typed something in the input field,
@@ -27,10 +34,6 @@ export class SearchComponent implements OnInit {
                   and assign the results to searchResults array
                 - if input field is empty, clear the searResults array
         */
-       if (!term) {
-           return;
-       }
-
        this.weatherService.searchLocation(term)
         .subscribe(data => {
             return this.searchResults = data;

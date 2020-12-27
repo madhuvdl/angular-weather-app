@@ -17,12 +17,12 @@
   <div class="container-weather" fxLayout="row">
 
     <mat-card class="cityData" *ngFor="let weather of cityDetails.weather">
-      <h3 class="date"> {{weather.date}} </h3>
+      <h3 class="date"> {{weather.date | date}} </h3>
       <mat-card>
         <img [src]="weather.weather_image" class="weatherIcon">
         <span class="weather"> {{weather.weather_name}}</span>
         <br>
-        <span class="cityTemp"> {{weather.temperature.toFixed(1)}}°C </span>
+        <span class="cityTemp"> {{weather.temperature.toFixed(1) | number: '2.1'}}°C </span>
       </mat-card>
     </mat-card>
 

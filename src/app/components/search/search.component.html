@@ -1,3 +1,4 @@
+<p>{{searchInput.value.trim().length}}</p>
 <p>
   <mat-form-field>
     <mat-label>Search city</mat-label>
@@ -8,7 +9,7 @@
         #searchInput
         matInput
         placeholder="paris, london..."
-        (keyup)="search(searchInput.value)" 
+        (input)="searchInput.value.trim().length > 3 && search(searchInput.value)" 
         class="searchInput">
   </mat-form-field>
 </p>
