@@ -26,7 +26,7 @@ export class WeatherService {
        sample url: baseUrl/api/location/search/?query=paris
     */
    if (!term.trim()) {
-    return of(null);
+    return null;
    }
    return this.http.get<ISearchResult[]>(this.baseUrl + '/api/location/search/?query=' + term);
 
@@ -89,8 +89,13 @@ export class WeatherService {
 
     return {
       city: rawData.title,
+      title: rawData.title,
       country: rawData.parent.title,
       weather: transformedWeather,
+      consolidated_weather: [],
+      parent: {
+        title: rawData.parent.title
+      }
     };
   }
 

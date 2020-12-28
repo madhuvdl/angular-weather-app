@@ -34,10 +34,16 @@ export class SearchComponent implements OnInit {
                   and assign the results to searchResults array
                 - if input field is empty, clear the searResults array
         */
-       this.weatherService.searchLocation(term)
-        .subscribe(data => {
-            return this.searchResults = data;
-        });
+       if (term.trim()) {
+           this.weatherService.searchLocation(term)
+            .subscribe(data => {
+                return this.searchResults = data;
+            });
+       }
+
+       if (term === '') {
+           this.searchResults = null;
+       }
     }
 
     selectedLocation(cityDetails: ISearchResult) {
@@ -49,8 +55,11 @@ export class SearchComponent implements OnInit {
               - clear all the results
               - send the cityid (woeid) to the parent component (AppComponent)
         */
-        this.selectedCity.emit(cityDetails);
-        this.searchResults = null;
+       console.log('cityDetails ', cityDetails);
+       this.selectedCity.emit(cityDetails.woeid);
+    //    this.selectedCity.emit(cityDetails);
+    this.searchInput.value = '';
+    this.searchResults = null;
 
     }
 }

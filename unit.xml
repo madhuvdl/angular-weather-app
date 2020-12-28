@@ -1,73 +1,26 @@
 <?xml version="1.0"?>
-<testsuite name="Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0" package="unit" timestamp="2020-12-27T08:16:56" id="0" hostname="DESKTOP-SU6EMMR" tests="14" errors="0" failures="4" time="4.334">
+<testsuite name="Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0" package="unit" timestamp="2020-12-28T06:55:28" id="0" hostname="DESKTOP-SU6EMMR" tests="14" errors="0" failures="1" time="2.29">
   <properties>
     <property name="browser.fullName" value="Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0"/>
   </properties>
-  <testcase name="AppComponent should render title in a text-mid class" time="0.795" classname="unit.AppComponent"/>
-  <testcase name="AppComponent should call weatherService.getCityDetails when getCityDetails() is called" time="0.538" classname="unit.AppComponent"/>
-  <testcase name="CityComponent should display city and country" time="0.277" classname="unit.CityComponent"/>
-  <testcase name="CityComponent should display formatted date" time="0.28" classname="unit.CityComponent"/>
-  <testcase name="CityComponent should display temperature with only 1 decimal" time="0.257" classname="unit.CityComponent"/>
-  <testcase name="CityComponent should display temperature with minimum 2 digits left to decimal" time="0.295" classname="unit.CityComponent"/>
-  <testcase name="CityComponent should display weather name" time="0.258" classname="unit.CityComponent"/>
-  <testcase name="SearchComponent search() should call weatherService.searchLocation when some character is typed" time="0.323" classname="unit.SearchComponent"/>
-  <testcase name="SearchComponent search() should not call weatherService.searchLocation when searchedString is empty" time="0.328" classname="unit.SearchComponent">
-    <failure type="">Expected undefined to equal null.
-    at UserContext.eval (webpack:///./src/app/components/search/search.component.spec.ts?:60:45)
-    at ZoneDelegate.invoke (webpack:///./node_modules/zone.js/dist/zone.js?:387:26)
-    at ProxyZoneSpec.onInvoke (webpack:///./node_modules/zone.js/dist/zone-testing.js?:287:39)
-    at ZoneDelegate.invoke (webpack:///./node_modules/zone.js/dist/zone.js?:386:32)
-</failure>
-    <failure type="">Expected spy searchLocation not to have been called with [ '' ] but it was.
-    at UserContext.eval (webpack:///./src/app/components/search/search.component.spec.ts?:61:48)
-    at ZoneDelegate.invoke (webpack:///./node_modules/zone.js/dist/zone.js?:387:26)
-    at ProxyZoneSpec.onInvoke (webpack:///./node_modules/zone.js/dist/zone-testing.js?:287:39)
-    at ZoneDelegate.invoke (webpack:///./node_modules/zone.js/dist/zone.js?:386:32)
-</failure>
-  </testcase>
-  <testcase name="SearchComponent selectedLocation() should emit cityid" time="0.307" classname="unit.SearchComponent">
-    <failure type="">Expected Object({ title: 'title', location_type: 'city', woeid: 1, latt_long: '22' }) to be 1.
-    at eval (webpack:///./src/app/components/search/search.component.spec.ts?:102:39)
-    at SafeSubscriber.schedulerFn [as _next] (webpack:///./node_modules/@angular/core/fesm5/core.js?:3864:36)
-    at SafeSubscriber.__tryOrUnsub (webpack:///./node_modules/rxjs/_esm5/internal/Subscriber.js?:204:16)
-    at SafeSubscriber.next (webpack:///./node_modules/rxjs/_esm5/internal/Subscriber.js?:142:22)
-</failure>
-  </testcase>
-  <testcase name="SearchComponent selectedLocation() should clear searchResults" time="0.313" classname="unit.SearchComponent"/>
-  <testcase name="SearchComponent selectedLocation() should be called when cityName is clicked" time="0.331" classname="unit.SearchComponent">
-    <failure type="">Expected spy selectedLocation to have been called with [ Object({ title: 'wasdas', location_type: 'city', woeid: 1, latt_long: '22' }) ] but actual calls were [ 1 ].
-    at eval (webpack:///./src/app/components/search/search.component.spec.ts?:118:52)
-    at ZoneDelegate.invoke (webpack:///./node_modules/zone.js/dist/zone.js?:387:26)
-    at ProxyZoneSpec.onInvoke (webpack:///./node_modules/zone.js/dist/zone-testing.js?:287:39)
-    at ZoneDelegate.invoke (webpack:///./node_modules/zone.js/dist/zone.js?:386:32)
-</failure>
-  </testcase>
-  <testcase name="WeatherService should fetch cities based on searched query" time="0.015" classname="unit.WeatherService"/>
+  <testcase name="AppComponent should render title in a text-mid class" time="0.493" classname="unit.AppComponent"/>
+  <testcase name="AppComponent should call weatherService.getCityDetails when getCityDetails() is called" time="0.349" classname="unit.AppComponent"/>
+  <testcase name="CityComponent should display city and country" time="0.138" classname="unit.CityComponent"/>
+  <testcase name="CityComponent should display formatted date" time="0.123" classname="unit.CityComponent"/>
+  <testcase name="CityComponent should display temperature with only 1 decimal" time="0.113" classname="unit.CityComponent"/>
+  <testcase name="CityComponent should display temperature with minimum 2 digits left to decimal" time="0.123" classname="unit.CityComponent"/>
+  <testcase name="CityComponent should display weather name" time="0.141" classname="unit.CityComponent"/>
+  <testcase name="SearchComponent search() should call weatherService.searchLocation when some character is typed" time="0.15" classname="unit.SearchComponent"/>
+  <testcase name="SearchComponent search() should not call weatherService.searchLocation when searchedString is empty" time="0.149" classname="unit.SearchComponent"/>
+  <testcase name="SearchComponent selectedLocation() should emit cityid" time="0.169" classname="unit.SearchComponent"/>
+  <testcase name="SearchComponent selectedLocation() should clear searchResults" time="0.153" classname="unit.SearchComponent"/>
+  <testcase name="SearchComponent selectedLocation() should be called when cityName is clicked" time="0.156" classname="unit.SearchComponent"/>
+  <testcase name="WeatherService should fetch cities based on searched query" time="0.016" classname="unit.WeatherService"/>
   <testcase name="WeatherService should fetch the city details based on the cityId" time="0.017" classname="unit.WeatherService">
     <failure type="">Expected object to have properties
     city: 'title'
     country: 'country'
     weather: [ Object({ date: '2018-08-03', temperature: 29, weather_name: 'state', weather_image: 'https://www.metaweather.com/static/img/weather/s.svg' }) ]
-Expected object not to have properties
-    consolidated_weather: [  ]
-    parent: Object({ title: 'country' })
-    title: 'title'
-Expected object to have properties
-    city: 'title'
-    country: 'country'
-    weather: [ Object({ date: '2018-08-03', temperature: 29, weather_name: 'state', weather_image: 'https://www.metaweather.com/static/img/weather/s.svg' }) ]
-Expected object not to have properties
-    consolidated_weather: [  ]
-    parent: Object({ title: 'country' })
-    title: 'title'
-Expected object to have properties
-    city: 'title'
-    country: 'country'
-    weather: [ Object({ date: '2018-08-03', temperature: 29, weather_name: 'state', weather_image: 'https://www.metaweather.com/static/img/weather/s.svg' }) ]
-Expected object not to have properties
-    consolidated_weather: [  ]
-    parent: Object({ title: 'country' })
-    title: 'title'
     at SafeSubscriber.eval [as _next] (webpack:///./src/app/services/weather.service.spec.ts?:60:55)
     at SafeSubscriber.__tryOrUnsub (webpack:///./node_modules/rxjs/_esm5/internal/Subscriber.js?:204:16)
     at SafeSubscriber.next (webpack:///./node_modules/rxjs/_esm5/internal/Subscriber.js?:142:22)
@@ -75,7 +28,9 @@ Expected object not to have properties
 </failure>
   </testcase>
   <system-out>
-    <![CDATA[Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0 LOG: 'obj.applicable_date ', '2018-08-03'
+    <![CDATA[Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0 LOG: 'cityDetails ', Object{title: 'title', location_type: 'city', woeid: 1, latt_long: '22'}
+,Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0 LOG: 'cityDetails ', Object{title: 'title', location_type: 'city', woeid: 1, latt_long: '22'}
+,Mozilla/5.0 (win32) AppleWebKit/537.36 (KHTML, like Gecko) jsdom/11.12.0 LOG: 'obj.applicable_date ', '2018-08-03'
 
 ]]>
   </system-out>
